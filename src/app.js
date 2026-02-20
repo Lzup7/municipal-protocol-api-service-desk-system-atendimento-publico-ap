@@ -1,10 +1,11 @@
 const express = require("express");
-const cors = require("cors");
-
 const app = express();
 
-app.use = express();
+app.use(express.json());
 
-app.get("/", (req,res) => {res.send("API Protocolo funcionando")});
+const protocoloRoutes = require("./routes/protocoloRoutes");
+app.use("/api", protocoloRoutes);
 
-app.listen(3000, () => {console.log("Servidor rodando na porta 3000")} );
+app.listen(3000, () => {
+    console.log("Servidor rodando na porta 3000");
+});
